@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3pgsy53sypuf"]
+
+[ext_resource type="Texture2D" uid="uid://cucktdibq42xw" path="res://scenes/White-Ball-Transparent-PNG.png" id="1_7s4qf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cxlvu"]
+radius = 42.4264
+
+[node name="ball" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -3.14159
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_7s4qf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cxlvu")

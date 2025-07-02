@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfdtt0py2mpcl"]
+
+[ext_resource type="Texture2D" uid="uid://cqgencwakhg02" path="res://scenes/square-16.png" id="1_ik6sa"]
+[ext_resource type="PackedScene" uid="uid://gd76h7vr3yal" path="res://scenes/player.tscn" id="1_nth8n"]
+[ext_resource type="Script" uid="uid://bhul768d6265e" path="res://scripts/pong.gd" id="1_ploue"]
+[ext_resource type="PackedScene" uid="uid://c3pgsy53sypuf" path="res://scenes/ball.tscn" id="3_ploue"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftxu3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_right = 10
+corner_detail = 12
+
+[node name="pong" type="Node2D"]
+script = ExtResource("1_ploue")
+metadata/_edit_vertical_guides_ = [1435.0]
+metadata/_edit_horizontal_guides_ = [857.0]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1288.0
+offset_bottom = 728.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ftxu3")
+
+[node name="line" type="Sprite2D" parent="Panel"]
+modulate = Color(1, 1, 1, 0.690196)
+position = Vector2(640, 360)
+scale = Vector2(0.16, 59.601)
+texture = ExtResource("1_ik6sa")
+
+[node name="player_1" parent="." instance=ExtResource("1_nth8n")]
+position = Vector2(48, 360)
+
+[node name="player_2" parent="." instance=ExtResource("1_nth8n")]
+position = Vector2(1232, 360)
+
+[node name="ball" parent="." instance=ExtResource("3_ploue")]
+position = Vector2(640, 340)
+scale = Vector2(0.365, 0.365)
+
+[node name="player_1_score" type="RichTextLabel" parent="."]
+offset_left = 216.0
+offset_top = 72.0
+offset_right = 288.0
+offset_bottom = 112.0
+theme_override_font_sizes/normal_font_size = 20
+
+[node name="player_2_score" type="RichTextLabel" parent="."]
+offset_left = 968.0
+offset_top = 72.0
+offset_right = 1040.0
+offset_bottom = 112.0
+theme_override_font_sizes/normal_font_size = 20
